@@ -1,4 +1,4 @@
-/* ng-infinite-scroll - v1.0.0 - 2013-10-14 */
+/* ng-infinite-scroll - v1.0.0 - 2013-12-04 */
 var mod;
 
 mod = angular.module('infinite-scroll', []);
@@ -12,7 +12,7 @@ mod.directive('infiniteScroll', [
         $scrollParent = elem.parents().filter(function() {
           return /(auto|scroll)/.test(($.css(this, 'overflow')) + ($.css(this, 'overflow-y')));
         }).eq(0);
-        if ($scrollParent.length === 0) {
+        if ($scrollParent.length === 0 || $scrollParent[0].nodeName === "HTML") {
           $scrollParent = $window;
         }
         scrollDistance = 0;

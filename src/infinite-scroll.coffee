@@ -9,7 +9,7 @@ mod.directive 'infiniteScroll', ['$rootScope', '$window', '$timeout', ($rootScop
       .filter ->
         (/(auto|scroll)/).test ($.css this, 'overflow') + ($.css this, 'overflow-y')
       .eq 0
-    $scrollParent = $window if $scrollParent.length == 0
+    $scrollParent = $window if $scrollParent.length == 0 || $scrollParent[0].nodeName == "HTML"
 
     # infinite-scroll-distance specifies how close to the bottom of the page
     # the window is allowed to be before we trigger a new scroll. The value
